@@ -5,7 +5,7 @@ import './main.html';
 
 Template.home.onCreated(function helloOnCreated() {
   // counter starts at 0
-  this.winner = new ReactiveVar({});
+  this.winner = new ReactiveVar();
 });
 
 Template.home.helpers({

@@ -18,11 +18,14 @@
   </h2>
 
   <button class="btn btn-primary">Click Me</button>
-  <div class="jumbotron">
-  {{#with winner}}
-    {{public_profile}} || {{email}}
-  {{/with}}
-  </div>
+    {{#if winner}}
+      <div class="jumbotron">
+        <h3>Ganador</h3>
+        {{#with winner}}
+          <h3>{{public_profile}} || {{email}} </h3>
+        {{/with}}
+      </div>
+    {{/if}}
 
   
   <div class="jumbotron">
