@@ -13,7 +13,6 @@ Router.route('/artists',{where: 'server'})
                 "message" : "invalid data"
             };
         } else {
-            console.log('artist',this.request.body);
             Artist.insert(
                this.request.body
             );
