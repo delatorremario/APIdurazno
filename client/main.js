@@ -3,20 +3,22 @@ import { ReactiveVar } from 'meteor/reactive-var';
 
 import './main.html';
 
-Template.hello.onCreated(function helloOnCreated() {
+Template.home.onCreated(function helloOnCreated() {
   // counter starts at 0
-  this.counter = new ReactiveVar(0);
+  this.winner = new ReactiveVar({});
 });
 
-Template.hello.helpers({
-  counter() {
-    return Template.instance().counter.get();
-  },
+Template.home.helpers({
+    winner () {
+      return Template.instance().winner.get()
+    }
 });
 
-Template.hello.events({
+
+Template.home.events({
   'click button'(event, instance) {
-    // increment the counter when button is clicked
-    instance.counter.set(instance.counter.get() + 1);
+    // hacer el sorteo
+    var fbkusers = this.fbkusers.fetch();
+    instance.winner.set(fbkusers[_.random(0,fbkusers.length -1)]);
   },
 });
