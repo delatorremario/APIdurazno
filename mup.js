@@ -19,6 +19,7 @@ module.exports = {
       serverOnly: true,
     },
     env: {
+	PORT:3000,	
       ROOT_URL: 'http://34.196.82.38',
       MONGO_URL:  "mongodb://durazno:durazno@ds111589.mlab.com:11589/durazno",
     },
