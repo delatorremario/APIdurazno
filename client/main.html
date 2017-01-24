@@ -13,9 +13,8 @@
 
 <template name="home">
       {{#each artists}}
-        
-          {{>artist}}
-      
+          Artista: <h3>{{name}}</h3>
+           {{>artist}}
         <hr>
       {{/each}}
 
@@ -33,21 +32,23 @@
 </template>
 
 <template name="artist">
-  <h5>Artista: {{name}}</h5>
-        <div class="row">   
-                <div class="col-xs-4">Portada</div>
-                <div class="col-xs-4">Canción</div>
-                <div class="col-xs-4">Votos</div>
-            </div>
+
+        <div class="row">
           {{#each songs}}
-            <div class="row">   
-                <div class="col-xs-4">
-                    <img style="width: 50px" src="{{url_image}}"/>
-                </div>
-                <div class="col-xs-4">{{name}}</div>
-                <div class="col-xs-4"><b>{{votescount}}</b></div>
-            </div>
+              <div class="col-xs-6">
+                  <div class="card" style="width: 80%;">
+                    <img class="card-img-top" src="{{url_image}}" alt="Disco">
+                    <div class="card-block">
+                      <h4 class="card-title">{{name}}</h4>
+                      <p class="card-text">
+                        <h3><small>Votos</small> {{votescount}}</h3>
+                      </p>
+                    </div>
+                  </div>
+              </div>
+          
           {{/each}}
+        </div>
 
           <button class="btn btn-primary">Sortear entre la más votada</button>
     <h4>{{winner}}</h4>
