@@ -14,9 +14,9 @@ Template.artist.events({
     console.log('winning_song',winning_song);
 
     var idfbk = winning_song.votes[_.random(0,winning_song.votes.length -1)]
-    var fbkuser = FacebookUser.findOne({public_profile:idfbk});
+    var fbkuser = FacebookUser.findOne({id_fbk:idfbk});
     console.log(idfbk,fbkuser);
-    instance.winner.set(fbkuser || 'Perfil no encontrado');
+    instance.winner.set(fbkuser || { first_name : 'Perfil no encontrado'});
   },
 });
 

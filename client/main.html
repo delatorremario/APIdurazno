@@ -49,7 +49,30 @@
           
           {{/each}}
         </div>
+        <div class="center-content">
+            <button class="btn btn-primary">Sortear entre la más votada</button>
+        </div>
+          
+          {{#with winner}}
+            {{>fbkprofile}}
+          {{/with}}
+</template>
 
-          <button class="btn btn-primary">Sortear entre la más votada</button>
-    <h4>{{winner}}</h4>
+<template name="fbkprofile">
+   <div class="card hovercard">
+                <div class="cardheader">
+
+                </div>
+                <div class="avatar">
+                    <img alt="" src="{{url}}">
+                </div>
+                <div class="info">
+                    <div class="title">
+                        {{first_name}} {{last_name}}
+                    </div>
+                    <div class="desc">{{email}}</div>
+                    <div class="desc">{{user_birthday}}</div>
+                    <div class="desc">{{gender}}</div>
+                </div>
+            </div>
 </template>
