@@ -31,3 +31,30 @@ Template.artist.helpers({
        return Template.instance().winner.get()
    }
 })
+
+// SORTEO
+
+Template.draw.onCreated(function helloOnCreated() {
+  this.winner = new ReactiveVar();
+});
+
+Template.draw.helpers({
+  fbkusers () {
+      return FacebookUser.find();  
+  },
+  winner () {
+      return Template.instance().winner.get()
+  }
+});
+
+Template.draw.events({
+  'click button'(event, instance) {
+    // hacer el sorteo
+    //crear array de usuario
+    var fbkusers = FacebookUser.find().fetch(); 
+    var idfbk = fbkusers[_.random(0,fbkusers.length -1)]
+    //var fbkuser = FacebookUser.findOne({id_fbk:idfbk._id});
+    console.log(idfbk);
+    instance.winner.set(idfbk || { first_name : 'Perfil no encontrado'});
+  },
+})

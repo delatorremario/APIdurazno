@@ -12,28 +12,39 @@
 </template>
 
 <template name="home">
-      {{#each artists}}
+      <!--{{#each artists}}
           Artista: <h3>{{name}}</h3>
            {{>artist}}
         <hr>
-      {{/each}}
+      {{/each}}-->
+      {{>draw}}
+  
+  
 
-  
-  
- <!-- <div class="jumbotron">
+</template>
+
+<template name="draw">
+  <div class="jumbotron">
+      <button class="btn btn-primary">Sortear</button>
+      {{#with winner}}
+        {{>fbkprofile}}
+      {{/with}}
+
+  </div>
+  <div class="jumbotron">
     <h4>Usuarios Registrados</h4>
+    
     <div>
       {{#each fbkusers}}
-        {{public_profile}} || {{email}}
+        {{>fbkrow}}
         <hr>
       {{/each}} 
     </div>
-  </div>-->
+  </div>
 </template>
 
 <template name="artist">
-
-        <div class="row">
+       <div class="row">
           {{#each songs}}
               <div class="col-xs-6">
                   <div class="card hovercard" style="padding-top:20px; width: 80%;">
@@ -80,3 +91,21 @@
             </div>
 </template>
 
+<template name="fbkrow">
+  <div class="row">
+    <div class="col-xs-2 avatar"><img alt="" src="{{url}}"></div> 
+    <div class="col-xs-6 info">
+                    <div class="title">
+                        {{first_name}} {{last_name}}
+                    </div>
+                    <div class="desc">ID {{id_fbk}}</div>
+                    <div class="desc">{{user_hometown}}</div>
+                    <div class="desc">{{email}}</div>
+                    <div class="desc">{{user_birthday}}</div>
+                    <div class="desc">{{gender}}</div>
+                </div>
+   </div>  
+
+               
+           
+</template>
